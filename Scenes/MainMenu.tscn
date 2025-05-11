@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bu70f0dsd4iaw" path="res://ARCSAS-godot/Scripts/About.gd" id="1_5wm6g"]
 [ext_resource type="Script" uid="uid://dj7sd27jmmh5v" path="res://ARCSAS-godot/Scripts/Load.gd" id="1_badgl"]
-[ext_resource type="AudioStream" uid="uid://irplj512tjru" path="res://ARCSAS-godot/Assets/Sounds/UI/Audio/click_002.ogg" id="2_5wm6g"]
+[ext_resource type="AudioStream" path="res://ARCSAS-godot/Assets/Sounds/UI/Audio/click_002.ogg" id="2_5wm6g"]
 [ext_resource type="Script" uid="uid://d1cur1ogppaha" path="res://ARCSAS-godot/Scripts/Newbutton.gd" id="2_k11qa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4s1i3"]
