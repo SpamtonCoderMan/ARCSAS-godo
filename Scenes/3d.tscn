@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://chw2380pucqug"]
+
+[ext_resource type="Texture2D" uid="uid://c3tsgpq3k48ho" path="res://ARCSAS-godot/Assets/Testing Assets/third_person_controller_assets-main/textures/grids/Dark/texture_02.png" id="1_v4ne2"]
+[ext_resource type="Texture2D" uid="uid://c056cy1n7gmmw" path="res://ARCSAS-godot/Assets/Testing Assets/third_person_controller_assets-main/textures/grids/Dark/texture_07.png" id="2_4ygmr"]
+[ext_resource type="PackedScene" uid="uid://uy0a6ox2enrv" path="res://ARCSAS-godot/Scenes/Player.tscn" id="3_vn44m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vn44m"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_kl3n8"]
+sky_material = SubResource("ProceduralSkyMaterial_vn44m")
+
+[sub_resource type="Environment" id="Environment_cql44"]
+background_mode = 2
+sky = SubResource("Sky_kl3n8")
+tonemap_mode = 2
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.0
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ygmr"]
+albedo_texture = ExtResource("1_v4ne2")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s45bp"]
+albedo_texture = ExtResource("2_4ygmr")
+uv1_triplanar = true
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.499377, 0.158809, 0.851706, 0.847307, -0.115643, 0.518361, 0.180814, 0.980513, -0.0768109, 1.78235, 2.68594, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cql44")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_4ygmr")
+use_collision = true
+size = Vector3(500, 1, 500)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03856, 1, 0.930015)
+material_override = SubResource("StandardMaterial3D_s45bp")
+use_collision = true
+size = Vector3(1, 1, 0.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.207724, 0, 0.978188, 0, 1, 0, -0.978188, 0, -0.207724, 0.728631, 1.5, -1.1764)
+material_override = SubResource("StandardMaterial3D_s45bp")
+use_collision = true
+size = Vector3(1, 2, 0.5)
+
+[node name="Player" parent="." instance=ExtResource("3_vn44m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mouseSpeedH = 0.6

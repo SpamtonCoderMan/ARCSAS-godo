@@ -1,0 +1,195 @@
+[gd_scene load_steps=10 format=3 uid="uid://o2xe8ldntit"]
+
+[ext_resource type="Script" uid="uid://bu70f0dsd4iaw" path="res://ARCSAS-godot/Scripts/About.gd" id="1_5wm6g"]
+[ext_resource type="Script" uid="uid://dj7sd27jmmh5v" path="res://ARCSAS-godot/Scripts/Load.gd" id="1_badgl"]
+[ext_resource type="AudioStream" uid="uid://irplj512tjru" path="res://ARCSAS-godot/Assets/Sounds/UI/Audio/click_002.ogg" id="2_5wm6g"]
+[ext_resource type="Script" uid="uid://d1cur1ogppaha" path="res://ARCSAS-godot/Scripts/Newbutton.gd" id="2_k11qa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4s1i3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vmay"]
+bg_color = Color(0.259294, 0.259294, 0.259294, 0.745098)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.774039, 0.798505, 0.875002, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+shadow_offset = Vector2(2, 9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dlnm"]
+bg_color = Color(0.6, 0.6, 0.6, 0.258824)
+border_color = Color(1, 0.722532, 0.668107, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jb3m"]
+bg_color = Color(0.509804, 0.6, 0.780392, 0.231373)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.118581, 0.118581, 0.118581, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(2, 9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwhf4"]
+bg_color = Color(0.604815, 0.578523, 0.717746, 0.0823529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.117647, 0.117647, 0.117647, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(2, 9)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -3.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 13.0
+offset_right = 1160.0
+offset_bottom = 661.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4s1i3")
+
+[node name="Arcsas" type="Panel" parent="MainMenu"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 324.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7vmay")
+
+[node name="Panel" type="Panel" parent="MainMenu/Arcsas"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 60.0
+offset_bottom = 54.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dlnm")
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Arcsas/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -24.0
+offset_right = 47.0
+offset_bottom = 24.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainMenu/Arcsas"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 303.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 40
+text = "ARCSAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load" type="Panel" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -97.5
+offset_right = 322.0
+offset_bottom = -50.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jb3m")
+
+[node name="MenuButton" type="MenuButton" parent="MainMenu/Load"]
+layout_mode = 0
+offset_top = -5.5
+offset_right = 300.0
+offset_bottom = 51.5
+theme_override_font_sizes/font_size = 35
+text = "Load"
+script = ExtResource("1_badgl")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MainMenu/Load/MenuButton"]
+stream = ExtResource("2_5wm6g")
+
+[node name="About" type="Panel" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = 182.5
+offset_right = 319.0
+offset_bottom = 219.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mwhf4")
+
+[node name="MenuButton" type="MenuButton" parent="MainMenu/About"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -12.5
+offset_right = 302.0
+offset_bottom = 44.5
+theme_override_font_sizes/font_size = 35
+text = "About"
+script = ExtResource("1_5wm6g")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="MainMenu/About/MenuButton"]
+stream = ExtResource("2_5wm6g")
+
+[node name="New" type="Panel" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -182.5
+offset_right = 322.0
+offset_bottom = -135.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jb3m")
+
+[node name="MenuButton" type="MenuButton" parent="MainMenu/New"]
+layout_mode = 0
+offset_top = -5.5
+offset_right = 300.0
+offset_bottom = 51.5
+theme_override_font_sizes/font_size = 35
+text = "New"
+script = ExtResource("2_k11qa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MainMenu/New/MenuButton"]
+stream = ExtResource("2_5wm6g")
+
+[connection signal="pressed" from="MainMenu/Load/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MainMenu/Load/MenuButton" to="MainMenu/Load/MenuButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/About/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MainMenu/About/MenuButton" to="MainMenu/About/MenuButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/New/MenuButton" to="MainMenu/New/MenuButton" method="_on_pressed"]
